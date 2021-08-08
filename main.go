@@ -31,11 +31,17 @@ func main() {
 
 	api := gin.Default()
 
+	api.GET("/", func(c *gin.Context) {
+		c.JSON(200, gin.H{
+			"message": "ok",
+		})
+	})
+
 	api.GET("rtc/:channelName/:role/:tokentype/:uid", getRtcToken)
 	api.GET("/rtm/:uid/", getRtmToken)
 	api.GET("/rte/:channelName/:role/:tokentype/:uid", getBothTokens)
 
-	api.Run(":8080")
+	// api.Run(":8080")
 }
 
 func getRtcToken(c *gin.Context) {
