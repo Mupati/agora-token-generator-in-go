@@ -3,6 +3,7 @@ package main
 import (
 	"fmt"
 	"log"
+	"os"
 	"strconv"
 	"time"
 
@@ -41,7 +42,7 @@ func main() {
 	api.GET("/rtm/:uid/", getRtmToken)
 	api.GET("/rte/:channelName/:role/:tokentype/:uid", getBothTokens)
 
-	port := envs["PORT"]
+	port := os.Getenv("PORT")
 	api.Run(":" + port)
 }
 
