@@ -1,1 +1,1 @@
-web: agora-token-generator-in-go
+web: agora-token-server
