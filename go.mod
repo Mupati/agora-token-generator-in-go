@@ -1,4 +1,4 @@
-module github.com/Mupati/agora-token-generator-in-go
+module agora-token-server
 
 // +heroku goVersion go1.13
 go 1.13
