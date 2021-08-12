@@ -17,18 +17,24 @@ var appID, appCertificate string
 
 func main() {
 
-	var envs map[string]string
-	envs, envsError := godotenv.Read(".env")
+	ENV := os.Getenv("ENV")
+	if ENV == "" {
+		err := godotenv.Load()
 
-	if envsError != nil {
-		log.Fatal("Error loading .env file")
+		if err != nil {
+			log.Fatal("Error loading .env file", err)
+		}
 	}
 
-	appIDEnv := envs["APP_ID"]
-	appCertEnv := envs["APP_CERTIFICATE"]
+	appIDEnv, appIDExists := os.LookupEnv("APP_ID")
+	appCertEnv, appCertExists := os.LookupEnv("APP_CERTIFICATE")
 
-	appID = appIDEnv
-	appCertificate = appCertEnv
+	if !appIDExists || !appCertExists {
+		log.Fatal("FATAL ERROR: ENV not properly configured, check APP_ID and APP_CERTIFICATE")
+	} else {
+		appID = appIDEnv
+		appCertificate = appCertEnv
+	}
 
 	api := gin.Default()
 
