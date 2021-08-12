@@ -17,8 +17,8 @@ var appID, appCertificate string
 
 func main() {
 
-	ENV := os.Getenv("ENV")
-	if ENV == "" {
+	ENV := os.Getenv("APP_ENV")
+	if ENV != "production" {
 		err := godotenv.Load()
 
 		if err != nil {
