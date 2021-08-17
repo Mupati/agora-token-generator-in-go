@@ -1,0 +1,23 @@
+{
+  "name": "Agora Token Server",
+  "description": "An RTC and RTE Agora token generator implemented in Go",
+  "repository": "https://github.com/Mupati/agora-token-generator-in-go",
+  "logo": "https://www.agora.io/en/wp-content/themes/agora-2020/images/agora-logo.svg",
+  "keywords": ["agora", "RTC", "RTE", "Go", "video call", "video chat"],
+  "env": {
+    "APP_ID": {
+      "description": "Your Agora APP_ID"
+    },
+    "APP_CERTIFICATE": {
+      "description": "Your Agora APP_CERTIFICATE"
+    },
+    "PORT": {
+      "description": "The Port the webserver should run on",
+      "value": 8080
+    },
+    "APP_ENV": {
+      "description": "App environment",
+      "value": "production"
+    }
+  }
+}
